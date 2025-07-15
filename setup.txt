@@ -25,7 +25,7 @@
   http://<server_ip>:8096
 
 # Add shared resource from TrueNAS (adjust uid and gid as needed)
-  apt-get install cifs-utils
+  apt install cifs-utils -y
   mkdir -p /mnt/truenas
   mount -t cifs //192.168.199.5/plex /mnt/truenas -o username=YOUR_USERNAME,password=YOUR_PASSWORD,uid=$(id -u),gid=$(id -g)
 
