@@ -1,5 +1,5 @@
 # Install Required Dependencies
-  apt install apt-transport-https software-properties-common gnupg curl -y
+  apt install -y apt-transport-https software-properties-common gnupg curl
 
 # Import the Jellyfin GPG Key
   curl -fsSL https://repo.jellyfin.org/jellyfin_team.gpg.key | gpg --dearmor -o /usr/share/keyrings/jellyfin-archive-keyring.gpg
@@ -11,7 +11,7 @@
   apt update  
 
 # Install Jellyfin
-  apt install jellyfin -y
+  apt install -y jellyfin
 
 # Enable and Start the Jellyfin Service
   systemctl enable jellyfin
@@ -25,7 +25,7 @@
   http://<server_ip>:8096
 
 # Add shared resource from TrueNAS (adjust uid and gid as needed)
-  apt install cifs-utils -y
+  apt install -y cifs-utils
   mkdir -p /mnt/truenas
   mount -t cifs //192.168.199.5/plex /mnt/truenas -o username=YOUR_USERNAME,password=YOUR_PASSWORD,uid=$(id -u),gid=$(id -g)
 
@@ -35,6 +35,6 @@
     password=YOUR_PASSWORD
   chmod 600 /root/samba.creds.truenas
   edit /etc/fstab
-    //192.168.199.5/share /mnt/truenas cifs credentials=/root/samba.creds.truenas,uid=0,gid=0,noperm 0 0
+    //192.168.199.5/YOUR_SHARE /mnt/truenas cifs credentials=/root/samba.creds.truenas,uid=0,gid=0,noperm 0 0
   reboot
   
