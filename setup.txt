@@ -21,9 +21,6 @@
   ufw allow 8096/tcp
   ufw status
 
-# Access the Web Interface
-  http://<server_ip>:8096
-
 # Add shared resource from TrueNAS (adjust uid and gid as needed)
   apt install -y cifs-utils
   mkdir -p /mnt/truenas
@@ -38,3 +35,5 @@
     //192.168.199.5/YOUR_SHARE /mnt/truenas cifs credentials=/root/samba.creds.truenas,uid=0,gid=0,noperm 0 0
   reboot
   
+# Access the Web Interface
+  http://YOUR_SERVER_IP:8096
